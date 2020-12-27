@@ -16,6 +16,7 @@ namespace JSApp
         {
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
+           // services.AddApplicationInsightsTelemetry();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
