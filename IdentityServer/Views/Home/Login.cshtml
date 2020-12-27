@@ -1,0 +1,31 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    var errors = ViewBag.errors??"";
+}
+
+<h1>Login to Identity Server</h1>
+
+<div style="color:red">
+    @errors
+</div>
+<form asp-controller="home" asp-action="login" method="post">
+    <input type="hidden" asp-for="returnUrl" />
+    <div>
+        <label>Username</label>
+        <input asp-for="username" />
+    </div>
+    <div>
+        <label>Password</label>
+        <input asp-for="password" />
+    </div>
+    <div>
+        <button type="submit">Login</button>
+    </div>
+</form>
+
+<div>
+    or Register from here
+    <a asp-controller="home" asp-action="register" asp-route-returnUrl="@Model.returnUrl">Register</a>
+   
+</div>

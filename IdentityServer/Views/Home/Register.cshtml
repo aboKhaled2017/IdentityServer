@@ -1,0 +1,42 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register your self to identity server";
+    var errors = ViewBag.errors ?? "";
+}
+
+<h1>Register to Identity Server</h1>
+
+<div style="color:red">
+    @errors
+</div>
+<form asp-controller="home" asp-action="register" method="post">
+    <input type="hidden" asp-for="returnUrl" />
+    <div>
+        <label>Username</label>
+        <input asp-for="username" />
+        <span asp-validation-for="username"></span>
+    </div>
+    <div>
+        <label>Password</label>
+        <input asp-for="password" />
+        <span asp-validation-for="password"></span>
+    </div>
+    <div>
+        <label>Confirm Password</label>
+        <input asp-for="confirmPassword" />
+        <span asp-validation-for="confirmPassword"></span>
+    </div>
+    <div>
+        @foreach (var prev in Model.Previliages)
+        {
+        <div>
+            <label>@prev.Name</label> : 
+            <input asp-for="@prev.IsSelcted" type="checkbox"/>
+        </div>
+        }
+    </div>
+    <div>
+        <button type="submit">Register</button>
+    </div>
+</form>
+

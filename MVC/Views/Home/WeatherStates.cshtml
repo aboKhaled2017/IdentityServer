@@ -1,0 +1,15 @@
+﻿@model IEnumerable<string>
+@{
+    ViewData["Title"] = "WeatherStates";
+}
+
+<h1 style="color:blue">WeatherStates</h1>
+<h2 style="color:aqua">You are here because you are authorized</h2>
+<div>
+    <ul>
+        @foreach (var item in Model)
+        {
+<li>@item</li>
+        }
+    </ul>
+</div>
